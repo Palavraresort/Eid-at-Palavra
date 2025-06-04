@@ -3,117 +3,76 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Eid at Palavra Booking</title>
+  <title>Customer Info Collection</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-
     body {
-      background-image: url('https://raw.githubusercontent.com/Palavraresort/Eid-at-Palavra/ee7b20dcd62e54d54b21f7dcd58cb17e44d19a3c/WALLPAPER.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      position: relative;
-      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 40px;
     }
-
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0, 0, 0, 0.5); /* 50% opacity overlay */
-      z-index: 0;
-    }
-
-    .container {
-      position: relative;
-      z-index: 1;
-      background: rgba(255, 255, 255, 0.9);
-      max-width: 600px;
-      margin: 50px auto;
+    .form-container {
+      background: white;
+      max-width: 500px;
+      margin: auto;
       padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-
     h2 {
       text-align: center;
-      color: #2c3e50;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
-
     label {
       display: block;
-      margin: 12px 0 6px;
-      font-weight: bold;
+      margin-top: 15px;
     }
-
     input, select {
       width: 100%;
       padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
       border: 1px solid #ccc;
-      border-radius: 8px;
     }
-
     button {
       margin-top: 20px;
-      width: 100%;
       padding: 12px;
+      width: 100%;
       background-color: #00704a;
       color: white;
       border: none;
-      border-radius: 8px;
+      border-radius: 6px;
       font-size: 16px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #005f3e;
-    }
-
-    .note {
-      margin-top: 15px;
-      text-align: center;
-      color: #555;
-      font-size: 0.9em;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h2>Eid Brunch & Kids Show Booking</h2>
-    <form action="https://filoosy.com/payment-link" method="POST"> <!-- Replace with real Filoosy link -->
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" required />
+  <div class="form-container">
+    <h2>Walk-in Customer Registration</h2>
+    <form method="POST" action="https://script.google.com/macros/s/AKfycbxPZixEnCw0gmajXrqkuFPjsNGoRviNuxsC64RYLNXVKvOiDlUK66mDslCp3cfnLgkQJA/exec">
+      <label>First Name</label>
+      <input type="text" name="firstName" required />
 
-      <label for="mobile">Mobile Number</label>
-      <input type="tel" id="mobile" name="mobile" required />
+      <label>Last Name</label>
+      <input type="text" name="lastName" required />
 
-      <label for="date">Booking Date</label>
-      <select id="date" name="date" required>
-        <option value="">-- Select Date --</option>
-        <option value="June 7, 2025">June 7, 2025</option>
-        <option value="June 8, 2025">June 8, 2025</option>
+      <label>Country</label>
+      <input type="text" name="country" required />
+
+      <label>Gender</label>
+      <select name="gender" required>
+        <option value="">Select</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
       </select>
 
-      <label for="soft">Brunch - Soft Beverages (BD 25)</label>
-      <input type="number" id="soft" name="soft_beverages" min="0" value="0" />
+      <label>Mobile Number</label>
+      <input type="tel" name="mobile" required />
 
-      <label for="house">Brunch - House Beverages (BD 35)</label>
-      <input type="number" id="house" name="house_beverages" min="0" value="0" />
+      <label>Email Address</label>
+      <input type="email" name="email" required />
 
-      <label for="kids">Evening Kids Show (Free Entry)</label>
-      <input type="number" id="kids" name="kids_show" min="0" value="0" />
-
-      <button type="submit">Book Now</button>
-
-      <div class="note">
-        We will contact you with confirmation and payment instructions.
-      </div>
+      <button type="submit">Submit</button>
     </form>
   </div>
 </body>
