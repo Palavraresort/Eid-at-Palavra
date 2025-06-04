@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eid Al Adha Booking Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #2e4f3e;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .submit-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px;
+      margin-top: 20px;
+      border: none;
+      width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .submit-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Book Your Eid Al Adha Experience</h2>
+    <form id="bookingForm" onsubmit="return redirectToPayment()">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="mobile">Mobile Number</label>
+      <input type="tel" id="mobile" name="mobile" required>
+
+      <label for="date">Booking Date</label>
+      <select id="date" name="date" required>
+        <option value="">-- Select Date --</option>
+        <option value="2025-06-07">June 7, 2025</option>
+        <option value="2025-06-08">June 8, 2025</option>
+      </select>
+
+      <label for="soft">BD 25 - Soft Beverage Package</label>
+      <input type="number" id="soft" name="soft" min="0" placeholder="0">
+
+      <label for="house">BD 35 - House Beverage Package</label>
+      <input type="number" id="house" name="house" min="0" placeholder="0">
+
+      <label for="kids">Evening Kids Show</label>
+      <input type="number" id="kids" name="kids" min="0" placeholder="0">
+
+      <button class="submit-button" type="submit">Book & Pay</button>
+    </form>
+  </div>
+
+  <script>
+    function redirectToPayment() {
+      const name = document.getElementById("name").value;
+      const mobile = document.getElementById("mobile").value;
+      const date = document.getElementById("date").value;
+      const soft = document.getElementById("soft").value || 0;
+      const house = document.getElementById("house").value || 0;
+      const kids = document.getElementById("kids").value || 0;
+
+      // Save booking to Google Sheets backend or similar here (e.g., via FormSubmit, SheetDB etc.)
+
+      // Redirect user to Filoosy payment link (placeholder)
+      window.location.href = "https://filoosy.com/YOUR-PAYMENT-LINK-HERE";
+      return false; // prevent actual form submit
+    }
+  </script>
+</body>
+</html>
