@@ -1,99 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eid Al Adha Booking Form</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eid at Palavra Booking</title>
   <style>
-    body {
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
       font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-      padding: 20px;
     }
+
+    body {
+      background-image: url('https://raw.githubusercontent.com/Palavraresort/Eid-at-Palavra/ee7b20dcd62e54d54b21f7dcd58cb17e44d19a3c/WALLPAPER.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5); /* 50% opacity overlay */
+      z-index: 0;
+    }
+
     .container {
-      background: white;
-      padding: 20px;
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.9);
       max-width: 600px;
-      margin: auto;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin: 50px auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
+
     h2 {
       text-align: center;
-      color: #2e4f3e;
+      color: #2c3e50;
+      margin-bottom: 20px;
     }
+
     label {
       display: block;
-      margin-top: 10px;
+      margin: 12px 0 6px;
       font-weight: bold;
     }
+
     input, select {
       width: 100%;
-      padding: 8px;
-      margin-top: 5px;
+      padding: 10px;
       border: 1px solid #ccc;
-      border-radius: 5px;
+      border-radius: 8px;
     }
-    .submit-button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 12px;
+
+    button {
       margin-top: 20px;
-      border: none;
       width: 100%;
-      border-radius: 5px;
+      padding: 12px;
+      background-color: #00704a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
       cursor: pointer;
     }
-    .submit-button:hover {
-      background-color: #45a049;
+
+    button:hover {
+      background-color: #005f3e;
+    }
+
+    .note {
+      margin-top: 15px;
+      text-align: center;
+      color: #555;
+      font-size: 0.9em;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h2>Book Your Eid Al Adha Experience</h2>
-    <form id="bookingForm" onsubmit="return redirectToPayment()">
+    <h2>Eid Brunch & Kids Show Booking</h2>
+    <form action="https://filoosy.com/payment-link" method="POST"> <!-- Replace with real Filoosy link -->
       <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" required>
+      <input type="text" id="name" name="name" required />
 
       <label for="mobile">Mobile Number</label>
-      <input type="tel" id="mobile" name="mobile" required>
+      <input type="tel" id="mobile" name="mobile" required />
 
       <label for="date">Booking Date</label>
       <select id="date" name="date" required>
         <option value="">-- Select Date --</option>
-        <option value="2025-06-07">June 7, 2025</option>
-        <option value="2025-06-08">June 8, 2025</option>
+        <option value="June 7, 2025">June 7, 2025</option>
+        <option value="June 8, 2025">June 8, 2025</option>
       </select>
 
-      <label for="soft">BD 25 - Soft Beverage Package</label>
-      <input type="number" id="soft" name="soft" min="0" placeholder="0">
+      <label for="soft">Brunch - Soft Beverages (BD 25)</label>
+      <input type="number" id="soft" name="soft_beverages" min="0" value="0" />
 
-      <label for="house">BD 35 - House Beverage Package</label>
-      <input type="number" id="house" name="house" min="0" placeholder="0">
+      <label for="house">Brunch - House Beverages (BD 35)</label>
+      <input type="number" id="house" name="house_beverages" min="0" value="0" />
 
-      <label for="kids">Evening Kids Show</label>
-      <input type="number" id="kids" name="kids" min="0" placeholder="0">
+      <label for="kids">Evening Kids Show (Free Entry)</label>
+      <input type="number" id="kids" name="kids_show" min="0" value="0" />
 
-      <button class="submit-button" type="submit">Book & Pay</button>
+      <button type="submit">Book Now</button>
+
+      <div class="note">
+        We will contact you with confirmation and payment instructions.
+      </div>
     </form>
   </div>
-
-  <script>
-    function redirectToPayment() {
-      const name = document.getElementById("name").value;
-      const mobile = document.getElementById("mobile").value;
-      const date = document.getElementById("date").value;
-      const soft = document.getElementById("soft").value || 0;
-      const house = document.getElementById("house").value || 0;
-      const kids = document.getElementById("kids").value || 0;
-
-      // Save booking to Google Sheets backend or similar here (e.g., via FormSubmit, SheetDB etc.)
-
-      // Redirect user to Filoosy payment link (placeholder)
-      window.location.href = "https://filoosy.com/YOUR-PAYMENT-LINK-HERE";
-      return false; // prevent actual form submit
-    }
-  </script>
 </body>
 </html>
